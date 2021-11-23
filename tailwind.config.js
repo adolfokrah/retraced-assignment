@@ -15,6 +15,16 @@ module.exports = {
       '5xl': '3rem',
       '6xl': '4rem',
     },
+    colors: {
+      primary: '#28526B',
+      input: '#F7F7F7',
+      border: '#DCDCDC',
+      background: '#F4F4F4',
+      white: '#ffffff',
+      error: '#DD6C6C',
+      clickedBtn: '#183141',
+      disabled: '#93A8B5',
+    },
     extend: {
       colors: {
         gray: {
