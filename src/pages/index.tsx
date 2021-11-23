@@ -169,13 +169,13 @@ const Index = () => {
                     setAgreedTerms(e.target.checked);
                   }}
                 />
-                <p className=" text-base">
+                <span className=" text-base">
                   Check to agreet to
                   <a href="retraced.co" className="text-primary">
                     Terms & Conditions
                   </a>
                   of retraced.co
-                </p>
+                </span>
               </div>
             </div>
           ) : (
@@ -191,12 +191,12 @@ const Index = () => {
                 }}
               />
               <div className="mt-10">
-                <p className=" text-lg">
+                <span className=" text-lg">
                   {"Didn't get a verification code?"}
                   <a href="retraced.co" className="font-bold text-primary ml-2">
                     Resend
                   </a>
-                </p>
+                </span>
               </div>
             </div>
           )}
