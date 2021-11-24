@@ -26,6 +26,9 @@ module.exports = {
       disabled: '#93A8B5',
     },
     extend: {
+      fontFamily: {
+        Avnir: ['Avnir', 'sans-serif'],
+      },
       colors: {
         gray: {
           100: '#f7fafc',

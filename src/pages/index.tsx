@@ -22,6 +22,7 @@ const Index = () => {
   const [agreedTerms, setAgreedTerms] = useState(false);
   const [step, setStep] = useState(1);
   const [otpType, setOtpType] = useState('');
+  const [pinCode, setPinCode] = useState('');
   const router = useRouter();
 
   useEffect(() => {
@@ -36,30 +37,6 @@ const Index = () => {
       setDisableBtn(true);
     }
   }, [firstName, agreedTerms, lastName, password]);
-
-  const setState = (value: string, field: string) => {
-    switch (field) {
-      case 'first_name':
-        setFirstName(value);
-        break;
-      case 'other_names':
-        setOtherNames(value);
-        break;
-      case 'last_name':
-        setLastName(value);
-        break;
-      case 'phone_number':
-        setPhoneNumber(value);
-        break;
-      case 'email':
-        setEmail(value);
-        break;
-      case 'password':
-        setPassword(value);
-        break;
-      default:
-    }
-  };
 
   return (
     <Main
@@ -101,7 +78,7 @@ const Index = () => {
                     label="First Name"
                     required={true}
                     value={firstName}
-                    onChanged={(value: string) => setState(value, 'first_name')}
+                    onChanged={(value: string) => setFirstName(value)}
                   />
                 </div>
                 <div className="flex-1  md:pl-5">
@@ -110,9 +87,7 @@ const Index = () => {
                     label="Other Names"
                     required={false}
                     value={otherNames}
-                    onChanged={(value: string) =>
-                      setState(value, 'other_names')
-                    }
+                    onChanged={(value: string) => setOtherNames(value)}
                   />
                 </div>
               </div>
@@ -124,15 +99,13 @@ const Index = () => {
                     label="Last Name"
                     required={true}
                     value={lastName}
-                    onChanged={(value: string) => setState(value, 'last_name')}
+                    onChanged={(value: string) => setLastName(value)}
                   />
                 </div>
                 <div className="flex-1  md:pl-5">
                   <CustomPhoneInput
                     value={phoneNumber}
-                    onChanged={(value: string) =>
-                      setState(value, 'phone_number')
-                    }
+                    onChanged={(value: string) => setPhoneNumber(value)}
                     label="Phone Number"
                     required={false}
                   />
@@ -146,13 +119,13 @@ const Index = () => {
                     label="Email"
                     required={false}
                     value={email}
-                    onChanged={(value: string) => setState(value, 'email')}
+                    onChanged={(value: string) => setEmail(value)}
                   />
                 </div>
                 <div className="flex-1  md:pl-5">
                   <CustomPasswordInput
                     value={password}
-                    onChanged={(value: string) => setState(value, 'password')}
+                    onChanged={(value: string) => setPassword(value)}
                     placeholder="Password"
                     label="Pasword"
                     required={true}
@@ -181,6 +154,7 @@ const Index = () => {
           ) : (
             <div className="mb-80">
               <VerificationInput
+                onChange={(value) => setPinCode(value)}
                 removeDefaultStyles
                 classNames={{
                   container: 'w-full md:w-3/5	 h-20',
@@ -217,6 +191,7 @@ const Index = () => {
                 onClicked={() => {
                   if (step === 1) setStep(2);
                   if (email.trim().length > 1) setOtpType('email');
+                  if (step === 2) console.log(pinCode);
                 }}
               />
             </div>
